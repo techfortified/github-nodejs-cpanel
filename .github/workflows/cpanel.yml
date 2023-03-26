@@ -39,7 +39,9 @@ jobs:
           username: ${{ secrets.GIT_CPANEL_NODE_USER }}
           password: ${{ secrets.GIT_CPANEL_NODE_PWD }}
           protocol: ${{ secrets.GIT_CPANEL_NODE_PROTOCOL }}
-          script: |
-            pm2 delete all
-            npm install
-            pm2 start npm -- start
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            README.md
+      - run: npm install
