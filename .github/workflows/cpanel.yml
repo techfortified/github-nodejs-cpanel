@@ -39,8 +39,7 @@ jobs:
           username: ${{ secrets.GIT_CPANEL_NODE_USER }}
           password: ${{ secrets.GIT_CPANEL_NODE_PWD }}
           protocol: ${{ secrets.GIT_CPANEL_NODE_PROTOCOL }}
-
-      - name: 📂 Install Dependencies and start app
-        run: |
-          npm install
-          npm start
+          script: |
+            pm2 delete all
+            npm install
+            pm2 start npm -- start
