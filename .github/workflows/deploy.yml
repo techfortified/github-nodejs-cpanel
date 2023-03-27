@@ -41,7 +41,7 @@ jobs:
           passphrase: ${{ secrets.GIT_CPANEL_NODE_SSH_PASSPHRASE }}
           port: ${{ secrets.GIT_CPANEL_NODE_SSH_PORT }}
           script: |
-            source /home/ebonprvl/nodevenv/github-node-cpanel.techfortified.com/14/bin/activate && cd /home/ebonprvl/github-node-cpanel.techfortified.com
+            ${{ secrets.GIT_CPANEL_NODE_SSH_DIR}}
             npm install
             npm install pm2@latest -g
             pm2 stop app.js
