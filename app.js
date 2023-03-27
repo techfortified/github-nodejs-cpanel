@@ -3,7 +3,7 @@ const http = require('http');
 
 const app = express();
 const server = http.createServer(app);
-const port = 5151
+const port = 5150
 
 app.get('/', function (req, res) {
     res.send(`Hello world, welcome to techfortified. Lets see if it works.. Server is running on port ${port}`);
