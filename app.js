@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const port = 5151
 
 app.get('/', function (req, res) {
-    res.send(`Hello world this is my server. Server is running on port ${port}`);
+    res.send(`Hello world this is a test github actions and node auto deployment. Server is running on port ${port}`);
 })
 
 server.listen(port, () => {
