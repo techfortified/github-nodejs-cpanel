@@ -42,7 +42,6 @@ jobs:
           port: ${{ secrets.GIT_CPANEL_NODE_SSH_PORT }}
           script: |
             source /home/ebonprvl/nodevenv/github-node-cpanel.techfortified.com/14/bin/activate && cd /home/ebonprvl/github-node-cpanel.techfortified.com
-            Ctrl + C
             npm install
             npm start
             
