@@ -43,7 +43,9 @@ jobs:
           script: |
             source /home/ebonprvl/nodevenv/github-node-cpanel.techfortified.com/14/bin/activate && cd /home/ebonprvl/github-node-cpanel.techfortified.com
             npm install
-            npm start
+            npm install pm2@latest -g
+            pm2 stop app.js
+            pm2 start app.js
             
 # cd ${{ secrets.GIT_CPANEL_NODE_SSH_DIR }}
 # node -v
