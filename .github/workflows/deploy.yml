@@ -41,9 +41,9 @@ jobs:
           passphrase: ${{ secrets.GIT_CPANEL_NODE_SSH_PASSPHRASE }}
           port: 22
           script: |
-            cd ${{ secrets.GIT_CPANEL_NODE_SSH_DIR }}
+            node -v
             ls
-
+# cd ${{ secrets.GIT_CPANEL_NODE_SSH_DIR }}
 # npm install 
 # npm install -g pm2
 # pm2 restart app.js
