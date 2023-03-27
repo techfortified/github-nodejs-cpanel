@@ -44,6 +44,7 @@ jobs:
             source /home/ebonprvl/nodevenv/github-node-cpanel.techfortified.com/14/bin/activate && cd /home/ebonprvl/github-node-cpanel.techfortified.com
             npm install
             npm install pm2@latest -g
+            npm stop
             pm2 stop app.js
             pm2 start app.js
             
