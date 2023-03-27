@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.GIT_CPANEL_NODE_SSH_USER }}
           key: ${{ secrets.GIT_CPANEL_NODE_SSH_KEY }}
           passphrase: ${{ secrets.GIT_CPANEL_NODE_SSH_PASSPHRASE }}
-          port: 22
+          port: ${{ secrets.GIT_CPANEL_NODE_SSH_PORT }}
           script: |
             node -v
             ls
