@@ -1,0 +1,52 @@
+# This workflow will do a clean install of node dependencies, 
+# build the source code and run tests across different versions of node
+# For more information see: 
+# https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: 📂 Sync folders and files to the server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.GIT_CPANEL_NODE_SERVER }}
+          username: ${{ secrets.GIT_CPANEL_NODE_USER }}
+          password: ${{ secrets.GIT_CPANEL_NODE_PWD }}
+          protocol: ${{ secrets.GIT_CPANEL_NODE_PROTOCOL }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            README.md
+
+      - name: Restart the node express server on done
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.GIT_CPANEL_NODE_SSH_HOST }}
+          username: ${{ secrets.GIT_CPANEL_NODE_SSH_USER }}
+          key: ${{ secrets.GIT_CPANEL_NODE_SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.GIT_CPANEL_NODE_SSH_DIR }}
+            npm install 
+            npm install -g pm2
+            pm2 restart app.js
+      

@@ -2,7 +2,7 @@ name: 🚀 Publish Website to CPanel
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   FTP-Deploy-Action:
     name: 🎉 Deploy
@@ -44,4 +44,3 @@ jobs:
             **/.git*/**
             **/node_modules/**
             README.md
-      - run: npm install
