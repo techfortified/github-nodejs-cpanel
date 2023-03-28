@@ -1,11 +1,11 @@
-name: Node.js CI
+name: Auto deploy nodejs app to cpanel using github actions
 on:
   push:
     branches:
       - main
 jobs:
-  build:
-    name: 🎉 Deploy
+  deploy-to-cpanel:
+    name: 🎉 Deploy-nodejs-app-to-cpanel
     runs-on: ubuntu-latest
 
     steps:
