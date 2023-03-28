@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   deploy-to-cpanel:
-    name: 🎉 Deploy-nodejs-app-to-cpanel
+    name: 🎉 Deploy nodejs app to cpanel
     runs-on: ubuntu-latest
 
     steps:
