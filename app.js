@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const port = 5150
 
 app.get('/', function (req, res) {
-    res.send(`Hello world, welcome to techfortified. Lets see if it works.. Server is running on port ${port}`);
+    res.send(`Hello world, welcome to techfortified. Server is running on port ${port}`);
 })
 
 server.listen(port, () => {
